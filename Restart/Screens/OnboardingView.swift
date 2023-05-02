@@ -10,6 +10,8 @@ import SwiftUI
 struct OnboardingView: View {
     @AppStorage("onboarding") var isOnboardingViewActive: Bool = true
     
+    @State private var celsius: Double = 0
+    
     var body: some View {
         ZStack {
             Color("ColorBlue").ignoresSafeArea()
@@ -55,15 +57,51 @@ struct OnboardingView: View {
                 //MARK: - FOOTER
                 Spacer()
                 
+                ZStack {
+                    Capsule()
+                        .fill(.white.opacity(0.2))
+                    
+                    Capsule()
+                        .fill(.white.opacity(0.2))
+                        .padding(8)
+                    
+                    HStack {
+                        Capsule()
+                            .fill(Color("ColorRed"))
+                            .frame(width: 80)
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        ZStack {
+                            Circle()
+                                .fill(Color("ColorRed"))
+                            Circle()
+                                .fill(.black.opacity(0.15))
+                                .padding(8)
+                            Image(systemName: "chevron.forward.2")
+                                .iconModifier()
+                        }
+                        .foregroundColor(.white)
+                        .frame(width: 80, height: 80, alignment: .center)
+                        .onTapGesture {
+                            isOnboardingViewActive = false
+                        }
+                        
+                        Spacer()
+                    }
+                    
+                    Text("Get Started")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .offset(x: 20)
+                        
+                }
+                .frame(height: 80, alignment: .center)
+                .padding()
             }
         }
-        
-//        Spacer()
-//        ZStack {
-//            Image("character-1")
-//                .imageModifier()
-//                .padding(.horizontal, 20)
-//        }
     }
 }
 
@@ -79,5 +117,10 @@ extension Image {
         return self
             .resizable()
             .scaledToFit()
+    }
+    
+    func iconModifier() -> some View {
+        return self
+            .font(.system(size: 24, weight: .bold))
     }
 }
