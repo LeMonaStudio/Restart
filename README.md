@@ -13,15 +13,6 @@ subviews.
 7. Adding state variables and making UI changes with state.
 8. And importantly understanding the basic structure of a SwiftUI App.
 
-### The UI
-The app starts with an Onboarding Screen. The Onboarding screen has a Text, an Image overlaying a custom view which is a group of circles
-and finallly a custom switch with drag gesture implemented. When the custom button is dragged the app's UI updates to the Home Screen. Also,
-the Home Screen has a Text at the top, an Image overlaying the custom circle view and a Restart button at the buttom of the screen to 
-navigate user back to the Onboarding screen.
-
-The navigation from the Onboarding Screen to the Home Screen and back, as a result of state change, plays an audio each time to improve 
-user experience. 
-
 ### Library Used
 No external library was imported into the project. The only libraries imported into the project was, importantly the SwiftUI library as 
 this is a SwiftUI project, and the AVFoundation library which enables the playing of sounds as user navigates between screens.
@@ -66,3 +57,21 @@ struct CircleGroupView_Previews: PreviewProvider {
     }
 }
 ```
+
+### The UI
+The app starts with an Onboarding Screen. The Onboarding screen has a Text, an Image overlaying a custom view which is a group of circles
+and finallly a custom switch with drag gesture implemented. When the custom button is dragged the app's UI updates to the Home Screen. Also,
+the Home Screen has a Text at the top, an Image overlaying the custom circle view and a Restart button at the buttom of the screen to 
+navigate user back to the Onboarding screen.
+
+The navigation from the Onboarding Screen to the Home Screen and back, as a result of state change, plays an audio each time to improve 
+user experience. 
+
+| Onboarding screen | Home screen |
+| ----------------- | ----------- |
+| ![](_docs/assets/onboarding-screen.png) | ![](_docs/assets/home-screen.png)  |
+ 
+<br></br>
+
+https://github.com/LeMonaStudio/Restart/assets/34939672/88014370-946a-4da5-a6dd-8cd8cb3ef265
+
